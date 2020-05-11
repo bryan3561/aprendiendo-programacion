@@ -43,12 +43,33 @@ $mensaje = null;
 # Operadores aritméticos > https://www.php.net/manual/es/language.operators.arithmetic.php
 
 
-$mensaje = "necesuito";
+$mensaje = "Hola";
 
-$saludos = ['Hola', 'Buenas'];
+$dia_de_hoy = date("d-m-Y");
 
-if (in_array($mensaje, $saludos)) {
-    echo "Tambien te saludamos\n";
+$ejercicios_por_dia["11-05-2020"] = [
+    [
+        'duracion' => 30,
+        'nombre' => "BURPEES",
+        'descripcion' => "Cuclillas atrás, cuclillas y salto",
+    ],
+    [
+        'duracion' => 30,
+        'nombre' => "SENTADILLA SUMO",
+        'descripcion' => "Sentadilla elevo rodilla arriba",
+    ]
+];
+
+
+if (isset($ejercicios_por_dia[$dia_de_hoy])) {
+    foreach ($ejercicios_por_dia[$dia_de_hoy] as $ejercicio) {
+        echo $ejercicio['duracion']."\n"
+        . $ejercicio['nombre']."\n"
+        . $ejercicio['descripcion']."\n--------------\n";
+    }
+
+
+
 } else {
-    echo "mal educado!!";
+    echo "no se han cargado aun los ejercicios para el dia de hoy";
 }
